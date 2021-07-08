@@ -17,7 +17,7 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    fetch("http://localhost:8080/ReVo_webtest/Missions")
+    fetch("http://131.151.90.204:8080/ReVo_webtest/Missions")
         .then(res => res.json())
         .then(
             (result) => {
@@ -57,7 +57,7 @@ class App extends React.Component {
             {items.map(item => (
 
                 <li>
-                  <a href={"http://localhost:8080/ReVo_webtest/MissionQRCode?missionCode="+item.MissionCode}>
+                  <a href={"http://131.151.90.204:8080/ReVo_webtest/MissionQRCode?missionCode="+item.MissionCode}>
                   {item.MissionName}, Capacity: {item.MissionCapacity} </a>
 
                 </li>
