@@ -1,74 +1,67 @@
-import logo from './logo.svg';
 import './App.css';
-import React from 'react';
+import Home from './Home';
+import ManageMissions from './ManageMissions';
+import ManageUsers from './ManageUsers';
+import AddUser from './AddUser'
+import AddMission from './AddMission'
+import UpdateMission from './UpdateMission';
+import UpdateUser from './UpdateUser';
+import 'react-pro-sidebar/dist/css/styles.css';
+import { BrowserRouter as Router, Link, Route } from 'react-router-dom';
+import { ProSidebar, SidebarHeader, SidebarContent, Menu, MenuItem, SubMenu } from 'react-pro-sidebar';
+import { BsFillHouseFill, BsFillPersonFill } from "react-icons/bs";
+import { FaClipboardList } from "react-icons/fa";
 
+function App() {
+  return (
+    <Router>
+      <div className="App" style={{ display: 'flex', flexDirection: 'row' }}>
+        <ProSidebar>
+          <SidebarHeader>
+            <div className="logotext">
+              <p> Central Authority Demo </p>
+            </div>
+          </SidebarHeader>
+          <SidebarContent>
+            <Menu iconShape="square">
+              <MenuItem icon={<BsFillHouseFill />}>
+                Home
+                <Link to="/home" />
+              </MenuItem>
+              <SubMenu title="Users" icon={<BsFillPersonFill />}>
+                <MenuItem>
+                  Manage Users
+                  <Link to="/manageUsers" />
+                </MenuItem>
+                <MenuItem>
+                  Add User
+                  <Link to="/addUser" />
+                </MenuItem>
+              </SubMenu>
+              <SubMenu title="Missions" icon={<FaClipboardList />}>
+                <MenuItem>
+                  Manage Missions
+                  <Link to="/manageMissions" />
+                </MenuItem>
+                <MenuItem>
+                  Add Mission
+                  <Link to="/addMission" />
+                </MenuItem>
+              </SubMenu>
+            </Menu>
+          </SidebarContent>
+        </ProSidebar>
 
-
-
-
-class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      error: null,
-      isLoaded: false,
-      items: []
-    };
-  }
-
-  componentDidMount() {
-    fetch("http://131.151.90.204:8080/ReVo_webtest/Missions")
-        .then(res => res.json())
-        .then(
-            (result) => {
-              this.setState({
-                isLoaded: true,
-                items: result
-              });
-            },
-            // Note: it's important to handle errors here
-            // instead of a catch() block so that we don't swallow
-            // exceptions from actual bugs in components.
-            (error) => {
-              this.setState({
-                isLoaded: true,
-                error
-              });
-            }
-        )
-  }
-
-
-  Mission(props) {
-
-    return
-  }
-
-  render() {
-    const { error, isLoaded, items } = this.state;
-    if (error) {
-      return <div>Error: {error.message}</div>;
-    } else if (!isLoaded) {
-      return <div>Loading...</div>;
-    } else {
-
-      return (
-          <ul>
-            {items.map(item => (
-
-                <li>
-                  <a href={"http://131.151.90.204:8080/ReVo_webtest/MissionQRCode?missionCode="+item.MissionCode}>
-                  {item.MissionName}, Capacity: {item.MissionCapacity} </a>
-
-                </li>
-            ))}
-          </ul>
-      );
-    }
-  }
-
-
+        <Route path="/home" component={Home} />
+        <Route path="/manageMissions" component={ManageMissions} />
+        <Route path="/addMission" component={AddMission} />
+        <Route path="/manageUsers" component={ManageUsers} />
+        <Route path="/addUser" component={AddUser} />
+        <Route path="/updateMission" component={UpdateMission} />
+        <Route path="/updateUser" component={UpdateUser} />
+      </div>
+    </Router>
+  );
 }
-
 
 export default App;
