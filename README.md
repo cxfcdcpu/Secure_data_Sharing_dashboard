@@ -1,8 +1,23 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## How to install
+This is the instruction of install the react frontend in Ubuntu. 
+### unzip
+Unzip the code file and put it to any folder you want
 
-## Available Scripts
+### setup environment
+Find the .env file in ./src folder. Change the value of REACT_APP_IP to be the ip address of your backend API.
+Change the value of REACT_APP_API to be the API name of your API.
+
+### install npm
+install npm using the following instruction:
+https://linuxize.com/post/how-to-install-node-js-on-ubuntu-20-04/
+
+### install dependency:
+in terminal, type in: "npm install". Then wait all dependency to be installed.
+
+### enjoy:
+using the following instruction to run the app.
 
 In the project directory, you can run:
 
