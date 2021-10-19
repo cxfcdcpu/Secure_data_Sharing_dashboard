@@ -16,6 +16,20 @@ https://linuxize.com/post/how-to-install-node-js-on-ubuntu-20-04/
 ### install dependency:
 in terminal, type in: "npm install". Then wait all dependency to be installed.
 
+### Change environmental variable (API IP)
+As our front end will communicate with the backend, we need to modify the backend IP before we can use.
+First find your backend PC's IP. To find the IP, you can use the terminal in your backend machince, type:
+    
+    ifconfig
+
+Your IP will be the format of 192.***.***.***
+
+Then, use terminal on your frontend folder. go to the ./src folder. To change the environmental constant in the hidden file ".env" Type: 
+
+    nano .env
+    
+Change the value of the REACT_APP_IP to be your backend IP address.
+
 ### enjoy:
 using the following instruction to run the app.
 
