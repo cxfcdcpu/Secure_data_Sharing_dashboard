@@ -24,7 +24,7 @@ First find your backend PC's IP. To find the IP, you can use the terminal in you
 
 Your IP will be the format of 192.***.***.***
 
-Then, use terminal on your frontend folder. go to the ./src folder. To change the environmental constant in the hidden file ".env" Type: 
+Then, use terminal on your frontend folder (root dir). To change the environmental constant in the hidden file ".env" Type: 
 
     nano .env
     
